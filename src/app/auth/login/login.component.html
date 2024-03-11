@@ -1,8 +1,5 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,13 +64,13 @@
                             El email debe tener un formato valido
                           </div>
                         </div>
-                    <input formControlName="number" class="input" type="number" name="number" placeholder="Number" required>
-                        <div *ngIf="number.invalid && (number.dirty || number.touched)" class="text-danger">
-                          <div *ngIf="number.errors?.['required']">
-                            El numero es requerido
+                    <input formControlName="repeatedPassword" class="input" type="password" name="repeatedPassword" placeholder="repeatedPassword" required>
+                        <div *ngIf="repeatedPassword.invalid && (repeatedPassword.dirty || repeatedPassword.touched)" class="text-danger">
+                          <div *ngIf="repeatedPassword.errors?.['required']">
+                            El password es requerido
                           </div>
-                          <div *ngIf="number.errors?.['minlength']">
-                            El numero debe tener al menos 3 caracteres
+                          <div *ngIf="repeatedPassword.errors?.['minlength']">
+                            El password debe tener al menos 3 caracteres
                           </div>
                         </div>
                     <input formControlName="password" class="input" type="password" name="pswd" placeholder="Password" required>
@@ -85,7 +82,7 @@
                             El password debe tener al menos 3 caracteres
                           </div>
                         </div>
-                    <button (click)="login()">REGISTRARSE</button>
+                    <button (click)="registerUsers()">REGISTRARSE</button>
                 </form>
         </div>
         <div class="toggle-container">
@@ -103,8 +100,5 @@
             </div>
         </div>
     </div>
-
-    <script src="script.js"></script>
 </body>
-
 </html>

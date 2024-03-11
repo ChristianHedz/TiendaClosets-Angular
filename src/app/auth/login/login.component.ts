@@ -1,9 +1,12 @@
+import { RegisteredUser } from './../../services/user/registeredUser';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { LoginService } from '../../services/auth/login.service';
 import { LoginRequest } from '../../services/auth/loginRequest';
+import { UserRequest } from '../../services/user/userRequest';
+import { RegisterUserService } from '../../services/user/user.service';
 
 
 
@@ -16,7 +19,7 @@ export class LoginComponent{
 
   public isLoginActive = false;
 
-  constructor(private formBuilder:FormBuilder, private router:Router, private loginService:LoginService){}
+  constructor(private formBuilder:FormBuilder, private router:Router, private loginService:LoginService, private registerUserService:RegisterUserService){}
 
   loginForm = this.formBuilder.group({
     username: ['',[Validators.required,Validators.minLength(3)]],
@@ -27,7 +30,7 @@ export class LoginComponent{
   registerForm = this.formBuilder.group({
     username: ['',[Validators.required,Validators.minLength(3)]],
     email: ['',[Validators.required,Validators.email]],
-    number: ['',[Validators.required,Validators.minLength(10)]],
+    repeatedPassword: ['',[Validators.required,Validators.minLength(3)]],
     password: [``,[Validators.required,Validators.minLength(3)]]
   });
 
@@ -63,39 +66,57 @@ export class LoginComponent{
     return this.registerForm.controls.password;
   }
 
-  get number(){
-    return this.registerForm.controls.number;
+  get repeatedPassword(){
+    return this.registerForm.controls.repeatedPassword;
   }
 
   public async login(){
-    if (this.loginForm.valid || this.registerForm.valid) {
-      this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
-        next: (data) => { // next sirve para obtener la respuesta del servidor en caso de que sea correcta
-          console.log(data);
-        },
-        error: (error) => { // error sirve para obtener la respuesta del servidor en caso de que sea incorrecta
-          Swal.fire({
-            title: 'Error!',
-            text: 'Los datos ingresados son incorrectos',
-            icon: 'error',
-          });
-        },
+    if (this.loginForm.valid) {
+
+      this.loginService.login(this.loginForm.value as LoginRequest).subscribe({ // Se llama al metodo login del servicio loginService y se le pasa como parametro el valor del formulario loginForm como un objeto de tipo LoginRequest y se suscribe a el para obtener la respuesta del servidor
+
+        next: (data) => console.log(data), // next sirve para obtener la respuesta del servidor en caso de que sea correcta
+
+        error: (error) => this.swalMessage('Error!', 'Los datos ingresados son incorrectos', 'error'), // error sirve para obtener la respuesta del servidor en caso de que sea incorrecta
+
         complete: () => { // complete sirve para obtener la respuesta del servidor en caso de que sea correcta
-          Swal.fire({
-            icon: 'success',
-            title: 'Login',
-            text: 'Login success',
-          });
+          this.swalMessage('Bienvenido!', 'Has iniciado sesión correctamente', 'success');
           this.router.navigateByUrl('/dashboard'); //
         }
+
       })
     } else {
-      Swal.fire({
-        title: 'Error!',
-        text: 'Ingresa los datos correctamente',
-        icon: 'error',
-      });
+      this.swalMessage('Error!', 'Los datos ingresados son incorrectos', 'error');
     }
+  }
+
+  public  registerUsers(){
+    if (this.registerForm.valid) {
+
+      this.registerUserService.registerUsers(this.registerForm.value as UserRequest).subscribe({ // Se llama al metodo login del servicio loginService y se le pasa como parametro el valor del formulario loginForm como un objeto de tipo LoginRequest y se suscribe a el para obtener la respuesta del servidor
+
+        next: (data) => console.log(data), // next sirve para obtener la respuesta del servidor en caso de que sea correcta
+
+        error: (error) => this.swalMessage('Error!', 'Los datos ingresados no son validos', 'error'),
+         // error sirve para obtener la respuesta del servidor en caso de que sea incorrecta
+
+        complete: () => { // complete sirve para obtener la respuesta del servidor en caso de que sea correcta
+          this.swalMessage('Bienvenido!', 'Has iniciado sesión correctamente', 'success');
+          this.router.navigateByUrl('/dashboard'); //
+        }
+
+      })
+    } else {
+      this.swalMessage('Error!', 'Ingresa los datos correctamente', 'error');
+    }
+  }
+
+  public swalMessage(title:string, text:string, icon:any){
+    Swal.fire({
+      title: title,
+      text: text,
+      icon: icon,
+    });
   }
 
 }

@@ -1,18 +1,37 @@
 import { environment } from './../../../environments/environment';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from './login.service';
-import { catchError, throwError } from 'rxjs';
+import { RegisteredUser} from './registeredUser';
+import { BehaviorSubject, Observable, catchError, map, tap, throwError } from 'rxjs';
+import { UserRequest } from './userRequest';
 
 @Injectable({providedIn: 'root'})
-export class ServiceNameService {
-  constructor(private http:HttpClient) { }
+export class RegisterUserService {
 
-getUsers(){
-  return this.http.get<User>(environment.urlApi + '/users').pipe(
-    catchError(this.handleError)
-  )
-}
+  registeredUserOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  registeredUserData: BehaviorSubject<RegisteredUser> = new BehaviorSubject<RegisteredUser>({
+    id: 0,username: '',email: '',roles: [],token: ''
+  });
+
+  constructor(private http:HttpClient) {
+    this.registeredUserOn= new BehaviorSubject<boolean>(sessionStorage.getItem("jwt")!==null);
+    this.registeredUserData = new BehaviorSubject<RegisteredUser>({
+      id: 0,username: '',email: '',roles: [],token: ''
+    });
+  }
+
+  registerUsers(credentials: UserRequest):Observable<RegisteredUser>{
+    return this.http.post<RegisteredUser>(environment.urlApi + '/user',credentials).pipe(
+      tap((user: RegisteredUser) => {
+        sessionStorage.setItem("jwt",user.token);
+        this.registeredUserData.next(user);
+        this.registeredUserOn.next(true);
+      }),
+      map((user: RegisteredUser) => user),
+      catchError(this.handleError)
+    )
+  }
 
 private handleError(error: HttpErrorResponse){
   if(error.status === 0){
