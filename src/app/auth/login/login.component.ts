@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { LoginService } from '../../services/auth/login.service';
+import { LoginRequest } from '../../services/auth/loginRequest';
 
 
 
@@ -14,7 +16,7 @@ export class LoginComponent{
 
   public isLoginActive = false;
 
-  constructor(private formBuilder:FormBuilder, private router:Router){}
+  constructor(private formBuilder:FormBuilder, private router:Router, private loginService:LoginService){}
 
   loginForm = this.formBuilder.group({
     username: ['',[Validators.required,Validators.minLength(3)]],
@@ -66,14 +68,27 @@ export class LoginComponent{
   }
 
   public async login(){
-
     if (this.loginForm.valid || this.registerForm.valid) {
-      await Swal.fire({
-        icon: 'success',
-        title: 'Login',
-        text: 'Login success',
-      });
-      this.router.navigateByUrl('/dashboard');
+      this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
+        next: (data) => { // next sirve para obtener la respuesta del servidor en caso de que sea correcta
+          console.log(data);
+        },
+        error: (error) => { // error sirve para obtener la respuesta del servidor en caso de que sea incorrecta
+          Swal.fire({
+            title: 'Error!',
+            text: 'Los datos ingresados son incorrectos',
+            icon: 'error',
+          });
+        },
+        complete: () => { // complete sirve para obtener la respuesta del servidor en caso de que sea correcta
+          Swal.fire({
+            icon: 'success',
+            title: 'Login',
+            text: 'Login success',
+          });
+          this.router.navigateByUrl('/dashboard'); //
+        }
+      })
     } else {
       Swal.fire({
         title: 'Error!',
