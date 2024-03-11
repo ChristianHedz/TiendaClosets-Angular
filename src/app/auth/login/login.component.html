@@ -1,0 +1,110 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Login Page | AsmrProg</title>
+</head>
+
+<body>
+
+    <div class="container" id="container" [ngClass]="{'active': isLoginActive}">
+        <div class="form-container sign-up">
+          <form class="form" [formGroup]="loginForm">
+            <label for="chk" aria-hidden="true">LOGIN</label>
+            <input formControlName="username" class="input" type="username" name="Username" placeholder="Username" required>
+              <div *ngIf="usernameLogin.invalid && (usernameLogin.dirty || usernameLogin.touched)" class="text-danger">
+                <div *ngIf="usernameLogin.errors?.['required']">
+                  El username es requerido
+                </div>
+                <div *ngIf="usernameLogin.errors?.['minlength']">
+                  El username debe tener al menos 3 caracteres
+                </div>
+              </div>
+            <input formControlName="email" class="input" type="email" name="email" placeholder="Email" required>
+                <div *ngIf="emailLogin.invalid && (emailLogin.dirty || emailLogin.touched)" class="text-danger">
+                  <div *ngIf="email.errors?.['required']">
+                    El email es requerido
+                  </div>
+                  <div *ngIf="emailLogin.errors?.['email']">
+                    El email debe tener un formato valido
+                  </div>
+                </div>
+
+            <input formControlName="password" class="input" type="password" name="pswd" placeholder="Password" required>
+                <div *ngIf="passwordLogin.invalid && (passwordLogin.dirty || passwordLogin.touched)" class="text-danger">
+                  <div *ngIf="passwordLogin.errors?.['required']">
+                    El password es requerido
+                  </div>
+                  <div *ngIf="passwordLogin.errors?.['minlength']">
+                    El password debe tener al menos 3 caracteres
+                  </div>
+                </div>
+            <button (click)="login()">LOGIN</button>
+        </form>
+        </div>
+        <div class="form-container sign-in" >
+                <form class="form" [formGroup]="registerForm">
+                    <label for="chk" aria-hidden="true">REGISTRO</label>
+                    <input formControlName="username" class="input" type="text" name="username" placeholder="Username" required>
+                      <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
+                        <div *ngIf="username.errors?.['required']">
+                          El username es requerido
+                        </div>
+                        <div *ngIf="username.errors?.['minlength']">
+                          El username debe tener al menos 3 caracteres
+                        </div>
+                      </div>
+                    <input formControlName="email" class="input" type="email" name="email" placeholder="Email" required>
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                          <div *ngIf="email.errors?.['required']">
+                            El email es requerido
+                          </div>
+                          <div *ngIf="email.errors?.['email']">
+                            El email debe tener un formato valido
+                          </div>
+                        </div>
+                    <input formControlName="number" class="input" type="number" name="number" placeholder="Number" required>
+                        <div *ngIf="number.invalid && (number.dirty || number.touched)" class="text-danger">
+                          <div *ngIf="number.errors?.['required']">
+                            El numero es requerido
+                          </div>
+                          <div *ngIf="number.errors?.['minlength']">
+                            El numero debe tener al menos 3 caracteres
+                          </div>
+                        </div>
+                    <input formControlName="password" class="input" type="password" name="pswd" placeholder="Password" required>
+                        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                          <div *ngIf="password.errors?.['required']">
+                            El password es requerido
+                          </div>
+                          <div *ngIf="password.errors?.['minlength']">
+                            El password debe tener al menos 3 caracteres
+                          </div>
+                        </div>
+                    <button (click)="login()">REGISTRARSE</button>
+                </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Bienvenido de nuevo!</h1>
+                    <p>Si aun no tienes una cuenta, Click aqui para registrarte!</p>
+                    <button class="hidden" id="login" (click)="onLoginActive()">Registrarse</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Bienvenido!</h1>
+                    <p>Si ya tienes una cuenta , Click aqui para iniciar sesion!</p>
+                    <button class="hidden" id="register" (click)="onLoginActive()">Iniciar Sesion</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
