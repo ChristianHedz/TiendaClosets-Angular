@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -36,35 +36,21 @@ export class LoginComponent{
 
   //login
 
-  get usernameLogin(){
-    return this.loginForm.controls.username;
-  }
+  usernameLogin  = computed(() => this.loginForm.controls.username);
 
-  get emailLogin(){
-    return this.loginForm.controls.email;
-  }
+  emailLogin = computed(()=> this.loginForm.controls.email)
 
-  get passwordLogin(){
-    return this.loginForm.controls.password;
-  }
+  passwordLogin = computed(()=> this.loginForm.controls.password)
 
   //register
 
-  get username(){
-    return this.registerForm.controls.username;
-  }
+  username = computed(()=> this.registerForm.controls.username)
 
-  get email(){
-    return this.registerForm.controls.email;
-  }
+  email = computed(()=> this.registerForm.controls.email)
 
-  get password(){
-    return this.registerForm.controls.password;
-  }
+  password = computed(()=> this.registerForm.controls.password)
 
-  get repeatedPassword(){
-    return this.registerForm.controls.repeatedPassword;
-  }
+  repeatedPassword = computed(()=> this.registerForm.controls.repeatedPassword)
 
   public login(){
     if (this.loginForm.valid) {
@@ -72,17 +58,16 @@ export class LoginComponent{
       this.authService.login(this.loginForm.value as LoginResponse).subscribe({
 
         next: (data) => console.log(data),
-        error: (error) => this.swalMessage('Error!', 'Los datos ingresados son incorrectos', 'error'),
+        error: (error) => Swal.fire('Error!', 'Los datos ingresados son incorrectos', 'error'),
 
         complete: () => {
-          this.swalMessage('Bienvenido!', 'Has iniciado sesión correctamente', 'success');
+          Swal.fire('Bienvenido!', 'Has iniciado sesión correctamente', 'success');
           this.router.navigateByUrl('/dashboard');
-          console.log(this.authService.authStatus());
         }
 
       })
     } else {
-      this.swalMessage('Error!', 'Los datos ingresados son incorrectos', 'error');
+      Swal.fire('Error!', 'Los datos ingresados son incorrectos', 'error');
     }
   }
 
@@ -93,27 +78,17 @@ export class LoginComponent{
 
         next: (data) => console.log(data),
 
-        error: (error) => this.swalMessage('Error!', 'Las contraseñas deden de ser iguales', 'error'),
+        error: (error) => console.log(error),
 
         complete: () => {
-          this.swalMessage('Bienvenido!', 'Has iniciado sesión correctamente', 'success');
+          Swal.fire('Bienvenido!', 'Has iniciado sesión correctamente', 'success');
           this.router.navigateByUrl('/dashboard');
-          console.log('registeredusers' +this.authService.authStatus());
-
         }
 
       })
     } else {
-      this.swalMessage('Error!', 'Ingresa los datos correctamente', 'error');
+      Swal.fire('Error!', 'Ingresa los datos correctamente', 'error');
     }
-  }
-
-  public swalMessage(title:string, text:string, icon:any){
-    Swal.fire({
-      title: title,
-      text: text,
-      icon: icon,
-    });
   }
 
 }

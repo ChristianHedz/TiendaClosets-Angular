@@ -4,7 +4,6 @@ import { AuthService } from "../services/auth.service";
 import { CanActivateFn, Router } from "@angular/router";
 
 export const isNotAuthGuard: CanActivateFn = (route,state) => {
-  console.log('isNotAuthGuard');
 
   const authService = inject( AuthService );
   const router = inject( Router );

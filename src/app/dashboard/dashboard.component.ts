@@ -7,9 +7,10 @@ import { AuthService } from '../auth/services/auth.service';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
-  hla(){
-    console.log('hola');
-  }
+  private authService = inject(AuthService);
 
+  onLogout(){
+    this.authService.logout();
+  }
 
 }

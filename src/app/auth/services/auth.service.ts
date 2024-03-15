@@ -29,24 +29,12 @@ export class AuthService {
   private _currentRegisteredUser = signal<RegisteredUser|null>(null);
   public currentRegisteredUser = computed(() => this._currentRegisteredUser());
 
-  authStatuss(){
-    console.log('authStatus' + this._authStatus());
-
-  }
-
   constructor() {
-    console.log('constructor1' + this._authStatus());
     this.isLogged().subscribe();
-    console.log('constructor2' + this._authStatus());
-
   }
-
 
   isLogged(): Observable<boolean> {
-    this.authStatuss();
-
     const jwt = sessionStorage.getItem("jwt");
-    console.log('jwt = ' + jwt);
 
     if(!jwt){
       this._authStatus.set(AuthStatus.notAuthenticated);
@@ -55,44 +43,38 @@ export class AuthService {
       this._authStatus.set(AuthStatus.authenticated);
     }
 
-    console.log('islogged 1 = ' + this._authStatus());
-
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + jwt);
 
     return this.http.post<AuthResponse>(environment.urlApi + "/profile", {}, {headers}).pipe(
       tap((user: AuthResponse) => {
-        console.log({user});
         this._currentAuthUser.set(user);
         this._authStatus.set(AuthStatus.authenticated);
-        console.log('islogged 2 = ' + this.authStatus());
       }),
       map( () => true),
       catchError((error) => {
         this._authStatus.set(AuthStatus.notAuthenticated);
-        sessionStorage.removeItem('jwt');
         return this.handleError(error);
       })
     );
-  }
 
+  }
 
   login(credentials: LoginResponse):Observable<boolean>{
     return this.http.post<User>(this.url+ '/login',credentials).pipe(
+
       tap((user: User) => {
-        console.log({user});
         sessionStorage.setItem("jwt",user.jwt);
         this._currentUserToken.set(user.jwt);
         this._authStatus.set(AuthStatus.authenticated);
-        console.log('login' + this._authStatus());
       }),
       map(() => true),
       catchError((error)=> {
         this._authStatus.set(AuthStatus.notAuthenticated);
         return this.handleError(error);
       })
+
     )
   }
-
 
     registerUsers(credentials: UserResponse):Observable<boolean>{
     return this.http.post<RegisteredUser>(environment.urlApi + '/user',credentials).pipe(
