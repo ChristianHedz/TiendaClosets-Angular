@@ -1,0 +1,20 @@
+body{
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  background-image: url(../../assets/img/fondo.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.bg-gradient-card{
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(124,168,238,1) 44%, rgba(0,161,255,1) 100%);
+}
+
+.btn:hover{
+  background-color: #082174;
+  color: #fff;
+  border: 1px solid #512da8;
+}

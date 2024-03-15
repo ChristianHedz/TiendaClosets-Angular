@@ -69,8 +69,8 @@
                           <div *ngIf="repeatedPassword.errors?.['required']">
                             El password es requerido
                           </div>
-                          <div *ngIf="repeatedPassword.errors?.['minlength']">
-                            El password debe tener al menos 3 caracteres
+                          <div *ngIf="repeatedPassword.errors?.['minlen gth']">
+                            El password debe tener al menos 5 caracteres
                           </div>
                         </div>
                     <input formControlName="password" class="input" type="password" name="pswd" placeholder="Password" required>
@@ -79,7 +79,7 @@
                             El password es requerido
                           </div>
                           <div *ngIf="password.errors?.['minlength']">
-                            El password debe tener al menos 3 caracteres
+                            El password debe tener al menos 5 caracteres
                           </div>
                         </div>
                     <button (click)="registerUsers()">REGISTRARSE</button>

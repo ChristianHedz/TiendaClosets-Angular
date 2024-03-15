@@ -1,3 +1,3 @@
 export interface User {
-  token: string;
+  jwt: string;
 }
