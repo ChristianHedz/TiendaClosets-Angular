@@ -1,12 +1,8 @@
-body{
-  height: 100vh;
+*{
+  box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-  background-image: url(../../assets/img/fondo.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
 }
+
 
 .bg-gradient-card{
   background: rgb(2,0,36);
@@ -17,4 +13,8 @@ body{
   background-color: #082174;
   color: #fff;
   border: 1px solid #512da8;
+}
+
+.bar{
+  height: 4000px;
 }

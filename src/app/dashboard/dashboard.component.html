@@ -8,92 +8,83 @@
 </head>
 
 <body>
-  <header class="d-flex justify-content-between align-items-center p-2">
-    <button class="btn btn-primary" type="button">Abrir</button>
-    <h1 class=" fw-bold text-primary">DASHBOARD</h1>
-    <button class="btn btn-primary border-0 rounded-5 p-2" (click)="onLogout()">CERRAR SESION</button>
+  <header class=" container-xl d-flex justify-content-between align-items-center p-2  pt-4">
+    <h1 class="">Dashboard</h1>
+    <button class="btn btn-primary border-0 rounded-5 p-2 " (click)="onLogout()">CERRAR SESION</button>
   </header>
+  <section class="container-xl">
+    <div class="row gap-5">
+      <div class="col-md-3 border bg-white dropdown-toggle rounded-3"  data-bs-toggle="dropdown">
+            <p class="m-0 opacity-50 fw-bolder" >Auto date range</p>
+            <a href="#" class="text-decoration-none text-dark fw-bolder fs-5">
+              This Month
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#" class="dropdown-item">Categorias</a></li>
+            </ul>
+      </div>
+      <div class="col-md-3 border bg-white dropdown-toggle rounded-3"  data-bs-toggle="dropdown">
+          <p class="m-0 opacity-50 fw-bolder" >Services</p>
+          <a href="#" class="text-decoration-none text-dark fw-bolder fs-5">
+              All
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#" class="dropdown-item">Categorias</a></li>
+          </ul>
+      </div>
+      <div class="col-md-3 border bg-white dropdown-toggle rounded-3"  data-bs-toggle="dropdown">
+          <p class="m-0 opacity-50 fw-bolder" >Post</p>
+          <a href="#" class="text-decoration-none text-dark fw-bolder fs-5">
+              All
+        </a>
+          <ul class="dropdown-menu">
+              <li><a href="#" class="dropdown-item">Categorias</a></li>
+          </ul>
+      </div>
+    </div>
+    <div class="row gap-5 mt-3">
+      <div class="card col-md border bg-white menu border rounded-4">
+        <div class="card-body ">
+          <h5 class="card-title mb-md-4 opacity-50 fw-bold">CAC</h5>
+          <h2 class="card-text display-3 mb-0 text-center fw-bolder">$248</h2>
+          <p class="card-text mb-0 text-center text-success fw-bolder fs-2 ">&#8675; $6</p>
+          <p class="card-text text-center my-3"><small> vs previous 30 days</small></p>
+        </div>
+      </div>
+      <div class="card col-md border bg-white menu border rounded-4">
+        <div class="card-body ">
+          <h5 class="card-title mb-md-4 opacity-50 fw-bold">MoM MRR Growth</h5>
+          <h2 class="card-text display-3 mb-0 text-center fw-bolder">3.60%</h2>
+          <p class="card-text mb-0 text-center text-success fw-bolder fs-2 ">&#8673; 0.25%</p>
+          <p class="card-text text-center my-3"><small> vs previous 30 days</small></p>
+        </div>
+      </div>
+      <div class="card col-md border bg-white menu border rounded-4">
+        <div class="card-body ">
+          <h5 class="card-title mb-md-4 opacity-50 fw-bold">Average LifeTime Value</h5>
+          <h2 class="card-text display-3 mb-0 text-center fw-bolder">$7,596</h2>
+          <p class="card-text mb-0 text-center text-success fw-bolder fs-2 ">&#8675; 0m:14s</p>
+          <p class="card-text text-center my-3"><small> vs previous 30 days</small></p>
+        </div>
+      </div>
+      <div class="card col-md border bg-white menu border rounded-4">
+        <div class="card-body ">
+          <h5 class="card-title mb-md-4 opacity-50 fw-bold">Active trial Accounts</h5>
+          <h2 class="card-text display-3 mb-0 text-center fw-bolder">$3,821</h2>
+          <p class="card-text mb-0 text-center text-success fw-bolder fs-2 ">&#8673; 172</p>
+          <p class="card-text text-center my-3"><small> vs previous 30 days</small></p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <div class="container">
-    <div class="row text-center">
-      <div class="col-md-4">
-        <div class="card bg-gradient-card rounded-4">
-          <div class="card-body">
-            <h5 class="card-title text-white">Agregar Nuevo usuario</h5>
-            <p class="card-text text-white">Click aqui para introducir un nuevo usuario</p>
-          </div>
-        </div>
-      </div> <!-- CARD 1 -->
-      <div class="col-md-4">
-        <div class="card bg-gradient-card rounded-4">
-          <div class="card-body">
-            <h5 class="card-title text-white">Editar Nuevo usuario</h5>
-            <p class="card-text text-white">Click aqui para Editar un nuevo usuario</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-gradient-card rounded-4">
-          <div class="card-body">
-            <h5 class="card-title text-white">Eliminar Nuevo usuario</h5>
-            <p class="card-text text-white">Click aqui para Eliminar un nuevo usuario</p>
-          </div>
-        </div>
-      </div>
+  <main class="container-xl ">
+    <div class="row my-5 ">
+      <app-bar-chart class="col-md "></app-bar-chart>
+      <app-line-chart class="col-md "></app-line-chart>
     </div>
-    <div class="row mt-5 text-center">
-      <div class="col-md-4">
-        <div class="card bg-gradient-card rounded-4">
-          <div class="card-body">
-            <h5 class="card-title text-white">Agregar Nuevo usuario</h5>
-            <p class="card-text text-white">Click aqui para introducir un nuevo usuario</p>
-          </div>
-        </div>
-      </div> <!-- CARD 1 -->
-      <div class="col-md-4">
-        <div class="card bg-gradient-card rounded-4">
-          <div class="card-body">
-            <h5 class="card-title text-white">Editar Nuevo usuario</h5>
-            <p class="card-text text-white">Click aqui para Editar un nuevo usuario</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-gradient-card rounded-4">
-          <div class="card-body">
-            <h5 class="card-title text-white">Eliminar Nuevo usuario</h5>
-            <p class="card-text text-white">Click aqui para Eliminar un nuevo usuario</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row mt-5 text-center">
-      <div class="col-md-4">
-        <div class="card bg-gradient-card rounded-4">
-          <div class="card-body">
-            <h5 class="card-title text-white">Agregar Nuevo usuario</h5>
-            <p class="card-text text-white">Click aqui para introducir un nuevo usuario</p>
-          </div>
-        </div>
-      </div> <!-- CARD 1 -->
-      <div class="col-md-4">
-        <div class="card bg-gradient-card rounded-4">
-          <div class="card-body">
-            <h5 class="card-title text-white">Editar Nuevo usuario</h5>
-            <p class="card-text text-white">Click aqui para Editar un nuevo usuario</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-gradient-card rounded-4">
-          <div class="card-body">
-            <h5 class="card-title text-white">Eliminar Nuevo usuario</h5>
-            <p class="card-text text-white">Click aqui para Eliminar un nuevo usuario</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  </main>
+
 </body>
 
 </html>
