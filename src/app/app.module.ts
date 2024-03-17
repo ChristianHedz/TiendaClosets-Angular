@@ -7,11 +7,13 @@ import { LoginComponent } from "./auth/pages/login.component";
 import { AuthService } from "./auth/services/auth.service";
 import { RouterOutlet } from "@angular/router";
 import { DashboardComponent } from "./dashboard/dashboard.component";
+import { BarChartComponent } from "./dashboard/components/bar-chart/bar-chart.component";
+import { LineChartComponent } from "./dashboard/components/line-chart/line-chart.component";
 
 
 @NgModule({
-  declarations: [LoginComponent,DashboardComponent],
-  exports: [LoginComponent,DashboardComponent],
+  declarations: [LoginComponent,DashboardComponent,BarChartComponent,LineChartComponent],
+  exports: [LoginComponent,DashboardComponent,BarChartComponent,LineChartComponent],
   imports: [ReactiveFormsModule,CommonModule,SweetAlert2Module.forRoot(),HttpClientModule,RouterOutlet],
   providers: [AuthService]
 })
