@@ -1,0 +1,18 @@
+*{
+  box-sizing: border-box;
+  font-family: "roboto", sans-serif;
+  color: white;
+}
+
+@media (max-width: 991px){
+  .sidebar{
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+  }
+}
+
+.link:hover{
+  background-color: #082174;
+  color: #fff;
+}
+
