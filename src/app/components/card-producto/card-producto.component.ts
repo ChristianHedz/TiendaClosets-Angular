@@ -1,4 +1,4 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, EventEmitter, input, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-card-producto',
@@ -8,6 +8,10 @@ import { Component, input, Input } from '@angular/core';
 export class CardProductoComponent {
   @Input() image?: string;
   @Input() text?: string;
+  @Output() imageClick = new EventEmitter<string>();
 
-  
+  onImageClick() {
+    this.imageClick.emit(this.image);
+  }
+
 }

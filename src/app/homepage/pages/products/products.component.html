@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+
+<main class="container-fluid my-5">
+
+  <h2 class="text-center fw-bolder fs-1 mtop">CLOSETS</h2>
+
+  <carrousel-3d></carrousel-3d>
+
+
+<div class="row row-gap-3 mt-3" *ngFor="let row of rows">
+  <div class="col-6 col-md-4" [ngClass]="{'col-12': isLast}" *ngFor="let product of row let isLast = last">
+    <app-card-producto [image]="product.image" [text]="product.text" (imageClick)="currentImage = $event; showModal()"> </app-card-producto>
+  </div>
+</div>
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <img [src]="currentImage" class="img-fluid" alt="card image" >
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</main>
+
+<app-footer></app-footer>

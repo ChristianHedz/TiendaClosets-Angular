@@ -1,10 +1,11 @@
 .card-img-large {
   height: 15rem; /* Ajusta este valor a tus necesidades */
+  object-fit: cover;
 }
 
 @media (width > 576px) {
   .card-img-large {
     height: 20rem; /* Ajusta este valor a tus necesidades */
-    object-fit: cover;
   }
 }
+
