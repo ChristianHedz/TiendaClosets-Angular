@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+</head>
+<body >
+  <!-- navbar -->
+  <app-navbar></app-navbar>
+
+  <!-- main -->
+  <div class="container-fluid mtop">
+    <div class="row">
+      <!-- Información -->
+      <div class="col-lg-6 order-lg-1 order-2 d-flex flex-column justify-content-center">
+        <h2 class="text-center shojomaru fs-1">VENTA DE CLOSETS </h2>
+        <p class="text-center text-justify fs-3">Pagina de venta de closets y otros tipos de muebles para el hogar!</p>
+        <button class="btn py-3 bg-black text-white">Click Aqui para mas informacion</button>
+
+        <div class="social-media">
+          <div id="social-platforms " class="mt-5 d-flex justify-content-center">
+            <a class="btn btn-icon btn-facebook " href="#"><i class="bi bi-facebook"></i><span class="bg-primary">Facebook</span></a>
+            <a class="btn btn-icon btn-whatsapp" href="#"><i class="bi bi-whatsapp"></i><span>WhatsApp</span></a>
+            <a class="btn btn-icon btn-googleplus" href="#"><i class="bi bi-google"></i><span class="bg-danger">Gmail</span></a>
+          </div>
+        </div>
+      </div>
+      <!-- Carrusel de imágenes -->
+      <div class="col-lg-6 order-lg-2 order-1 ">
+        <carrousel-3d></carrousel-3d>
+      </div>
+
+    </div>
+  </div>
+
+
+  <main class="container-fluid my-5">
+    <h2 class="text-center fw-bolder fs-1">CLOSETS</h2>
+
+    <div class="row row-gap-3 mt-3" *ngFor="let row of rows">
+      <div class="col-6 col-md-4" [ngClass]="{'col-12': isLast}" *ngFor="let product of row let isLast = last">
+        <app-card-producto [image]="product.image" [text]="product.text" (imageClick)="currentImage = $event; showModal()"> </app-card-producto>
+      </div>
+    </div>
+
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <img [src]="currentImage" class="img-fluid" alt="card image" >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="my-4 m-auto text-center ">
+      <button class="px-5 py-3 bg-black" routerLink="/closets">Ver mas closets</button>
+    </div>
+
+  </main>
+
+  <app-footer></app-footer>
+
+</body>
+</html>

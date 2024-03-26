@@ -4,4 +4,15 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: multiply;
+  background-attachment: fixed;
 }
+
+*{
+  box-sizing: border-box;
+  font-family: "roboto", sans-serif;
+  color: white;
+}
+
+
+/* 56 37 06 45 52 */
+/*  */
