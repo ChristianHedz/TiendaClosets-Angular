@@ -1,6 +1,6 @@
 import {NgModule} from "@angular/core";
 import {ReactiveFormsModule } from "@angular/forms";
-import {CommonModule } from "@angular/common";
+import {CommonModule, NgOptimizedImage } from "@angular/common";
 import {SweetAlert2Module } from "@sweetalert2/ngx-sweetalert2";
 import { HttpClientModule } from "@angular/common/http";
 import { LoginComponent } from "./auth/pages/login.component";
@@ -25,7 +25,7 @@ import { Carrousel3DComponent } from "./components/carrousels/carrousel-3d/carro
   exports: [LoginComponent,DashboardComponent,BarChartComponent,LineChartComponent,HomePageComponent,
      NavbarComponent,CarrouselComponent,CardProductoComponent,ProductsComponent,FooterComponent,Carrousel3DComponent],
 
-  imports: [ReactiveFormsModule,CommonModule,HttpClientModule,RouterOutlet,RouterModule],
+  imports: [ReactiveFormsModule,CommonModule,HttpClientModule,RouterOutlet,RouterModule,NgOptimizedImage],
   providers: [AuthService]
 })
 export class AppModule {}

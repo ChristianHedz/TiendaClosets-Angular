@@ -1,9 +1,12 @@
-
 <!-- Tu tarjeta con la imagen -->
 <div class="card">
-  <img [src]="image" class="card-img-top img-fluid card-img-large" alt="card image"
-  data-bs-toggle="modal" data-bs-target="#imageModal" (click)="onImageClick()">
+  <picture>
+    <source media="(max-width: 600px)" [srcset]="srcset" >
+    <img [src]="image" fill class="card-img-top img-fluid card-img-large" alt="card image"
+    data-bs-toggle="modal" data-bs-target="#imageModal" (click)="onImageClick()">
+  </picture>
   <!-- ... el resto de tu código ... -->
+
   <div class="card-body bg-black text-white ">
     <h5 class="card-title">{{text}}</h5>
     <p class="card-text text-justify">Contactame por estas redes para pedir mas informacion. Da Click</p>
@@ -12,9 +15,4 @@
       <a href="#" class="btn btn-danger btn-sm">Email</a>
     </div>
   </div>
-
 </div>
-
-
-
-
