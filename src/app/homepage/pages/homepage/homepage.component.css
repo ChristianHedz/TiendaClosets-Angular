@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Shojumaru&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
 html{
@@ -7,12 +8,24 @@ html{
 }
 
 .mtop{
-  margin-top: 5rem;
+  margin-top: 7rem;
 }
 
 .shojomaru{
   font-family: "Shojumaru", system-ui;
   font-weight: 400;
+  font-style: normal;
+}
+
+.kanit {
+  font-family: "Kanit", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.kanit-extralight {
+  font-family: "Kanit", sans-serif;
+  font-weight: 300;
   font-style: normal;
 }
 
