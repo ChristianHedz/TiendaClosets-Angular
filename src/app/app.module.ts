@@ -11,19 +11,20 @@ import { LineChartComponent } from "./dashboard/components/line-chart/line-chart
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { HomePageComponent } from "./homepage/pages/homepage/homepage.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
-import { CarrouselComponent } from "./components/carrousels/carrousel-bootstrap/carrousel.component";
+import { Card3DComponent } from "./components/carrousels/carrousel-bootstrap/card-3d.component";
 import { CardProductoComponent } from "./components/card-producto/card-producto.component";
 import { ProductsComponent } from "./homepage/pages/products/products.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { Carrousel3DComponent } from "./components/carrousels/carrousel-3d/carrousel-3d.component";
+import { InfoComponent } from './homepage/pages/info/info.component';
 
 
 @NgModule({
   declarations: [LoginComponent,DashboardComponent,BarChartComponent,LineChartComponent,HomePageComponent,
-    NavbarComponent,CarrouselComponent,CardProductoComponent,ProductsComponent,FooterComponent,Carrousel3DComponent],
+    NavbarComponent,Card3DComponent,CardProductoComponent,ProductsComponent,FooterComponent,Carrousel3DComponent,InfoComponent],
 
   exports: [LoginComponent,DashboardComponent,BarChartComponent,LineChartComponent,HomePageComponent,
-     NavbarComponent,CarrouselComponent,CardProductoComponent,ProductsComponent,FooterComponent,Carrousel3DComponent],
+     NavbarComponent,Card3DComponent,CardProductoComponent,ProductsComponent,FooterComponent,Carrousel3DComponent,InfoComponent],
 
   imports: [ReactiveFormsModule,CommonModule,HttpClientModule,RouterOutlet,RouterModule,NgOptimizedImage],
   providers: [AuthService]

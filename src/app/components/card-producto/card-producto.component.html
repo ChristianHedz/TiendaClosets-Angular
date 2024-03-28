@@ -1,13 +1,10 @@
-<!-- Tu tarjeta con la imagen -->
-<div class="card">
+<div class="card border-0 rounded-3">
   <picture>
     <source media="(max-width: 600px)" [srcset]="srcset" >
-    <img [src]="image" fill class="card-img-top img-fluid card-img-large" alt="card image"
+    <img [src]="image" fill class="card-img-top img-fluid card-img-large border-0 rounded-top-3" alt="card image"
     data-bs-toggle="modal" data-bs-target="#imageModal" (click)="onImageClick()">
   </picture>
-  <!-- ... el resto de tu código ... -->
-
-  <div class="card-body bg-black text-white ">
+  <div class="card-body bg-black text-white border-0 rounded-bottom-3 z-3">
     <h5 class="card-title">{{text}}</h5>
     <p class="card-text text-justify">Contactame por estas redes para pedir mas informacion. Da Click</p>
     <div class="d-flex justify-content-center gap-2">
