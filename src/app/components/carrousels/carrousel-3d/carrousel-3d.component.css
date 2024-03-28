@@ -1,16 +1,15 @@
-/* CARROUSEL */
+/* CARRUSEL */
+/* 3D Slideshow */
 
 .contenedor{
   margin: 0 auto;
   max-width: 120rem;
   width: 100%;
 }
-/* CARRUSEL */
-/* 3D Slideshow */
 
 .hero{
   width: 100%;
-  height: 30rem;
+  height: 25rem;
   overflow: hidden;
 }
 @media (max-width: 378px) {
