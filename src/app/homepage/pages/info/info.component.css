@@ -1,0 +1,16 @@
+
+.line-height{
+  line-height:3rem;
+}
+
+.kanit {
+  font-family: "Kanit", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.kanit-extralight {
+  font-family: "Kanit", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
