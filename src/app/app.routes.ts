@@ -9,6 +9,7 @@ import { HomePageComponent } from './homepage/pages/homepage/homepage.component'
 import { ProductsComponent } from './homepage/pages/products/products.component';
 import { Card3DComponent} from './components/carrousels/carrousel-bootstrap/card-3d.component';
 import { InfoComponent } from './homepage/pages/info/info.component';
+import { ContactComponent } from './homepage/pages/contact/contact.component';
 
 export const routes: Routes = [
   {path: '',redirectTo: 'dashboard',pathMatch: 'full'},
@@ -18,5 +19,6 @@ export const routes: Routes = [
   {path: 'line',component: LineChartComponent},
   {path: 'home',component: HomePageComponent},
   {path: 'closets',component: ProductsComponent},
-  {path: 'info',component: InfoComponent}
+  {path: 'info',component: InfoComponent},
+  {path: 'contactame',component: ContactComponent}
 ];

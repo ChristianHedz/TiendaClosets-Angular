@@ -17,14 +17,17 @@ import { ProductsComponent } from "./homepage/pages/products/products.component"
 import { FooterComponent } from "./components/footer/footer.component";
 import { Carrousel3DComponent } from "./components/carrousels/carrousel-3d/carrousel-3d.component";
 import { InfoComponent } from './homepage/pages/info/info.component';
+import { ContactComponent } from "./homepage/pages/contact/contact.component";
 
 
 @NgModule({
   declarations: [LoginComponent,DashboardComponent,BarChartComponent,LineChartComponent,HomePageComponent,
-    NavbarComponent,Card3DComponent,CardProductoComponent,ProductsComponent,FooterComponent,Carrousel3DComponent,InfoComponent],
+    NavbarComponent,Card3DComponent,CardProductoComponent,ProductsComponent,FooterComponent,
+    Carrousel3DComponent,InfoComponent,ContactComponent],
 
   exports: [LoginComponent,DashboardComponent,BarChartComponent,LineChartComponent,HomePageComponent,
-     NavbarComponent,Card3DComponent,CardProductoComponent,ProductsComponent,FooterComponent,Carrousel3DComponent,InfoComponent],
+     NavbarComponent,Card3DComponent,CardProductoComponent,ProductsComponent,FooterComponent,
+     Carrousel3DComponent,InfoComponent,ContactComponent],
 
   imports: [ReactiveFormsModule,CommonModule,HttpClientModule,RouterOutlet,RouterModule,NgOptimizedImage],
   providers: [AuthService]
