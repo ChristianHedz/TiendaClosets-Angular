@@ -4,7 +4,7 @@
     <button class="navbar-toggler border-0 shadow-none bg-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" #offcanvas>
       <div class="offcanvas-header text-white border-bottom">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">TIENDA <span class="text-primary-emphasis">CLOSETS</span></h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -12,16 +12,16 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item mx-2">
-            <a class="nav-link active link text-white" aria-current="page" routerLink="/home">HOME</a>
+            <a class="nav-link active link text-white" aria-current="page" routerLink="/home" data-bs-dismiss="offcanvas">HOME</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link link" routerLink="/closets">CLOSETS</a>
+            <a class="nav-link link" routerLink="/closets" data-bs-dismiss="offcanvas">CLOSETS</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link link" routerLink="/info">INFO</a>
+            <a class="nav-link link" routerLink="/info" data-bs-dismiss="offcanvas">INFO</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link link" routerLink="/contactame">CONTACTAME</a>
+            <a class="nav-link link" routerLink="/contactame" data-bs-dismiss="offcanvas">CONTACTAME</a>
           </li>
         </ul>
       </div>

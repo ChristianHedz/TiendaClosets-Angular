@@ -1,4 +1,5 @@
 import { Component, EventEmitter, input, Input, OnInit, Output } from '@angular/core';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-card-producto',
@@ -18,6 +19,10 @@ export class CardProductoComponent implements OnInit{
 
   ngOnInit() {
     this.srcset = this.smallImage + ' 768w';
+    AOS.init({
+      duration: 1000, 
+      once: false
+    });
   }
 
 }

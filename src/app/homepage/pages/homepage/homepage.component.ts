@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as AOS from 'aos';
 
 declare var $: any;
 @Component({
@@ -6,7 +7,7 @@ declare var $: any;
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
-export class HomePageComponent  {
+export class HomePageComponent implements OnInit {
 
   rows = [
     [
@@ -25,5 +26,12 @@ export class HomePageComponent  {
 
   showModal(){
     $('#imageModal').modal('show');
+  }
+
+  ngOnInit() {
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
   }
 }
