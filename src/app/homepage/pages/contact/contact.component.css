@@ -46,6 +46,7 @@ textarea {
   color: #fff;
   font-weight: 700;
   letter-spacing: 1px;
+  margin: 0px;
 }
 
 .send-button {
@@ -97,7 +98,7 @@ textarea {
 }
 
 .place {
-  margin-left: 62px;
+  margin-left: 42px;
 }
 
 .phone {
@@ -225,7 +226,7 @@ hr {
   }
 
 
-  .name, .email, textarea {
+  .name, .email {
     width: 280px;
   }
 
@@ -248,10 +249,80 @@ hr {
     line-height: 55px;
   }
 
+  .alt-send-button {
+    width: 300px;
+    height: 34px;
+    transition: all .2s ease-in-out;
+  }
+
 }
 
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 450px) {
+
+
+  #contact {
+    overflow: hidden;
+  }
+
+  .place {
+    margin-left: 12px;
+  }
+
+  .phone {
+    margin-left: 16px;
+  }
+
+  .gmail {
+    margin-left: 13px;
+  }
+
+  .direct-contact-container, .form-wrapper {
+    float: none;
+    margin: 0 auto;
+  }
+  .form-control, textarea {
+    margin: 0 auto;
+    width: 80%;
+  }
+  .name, .email {
+    width: 20px; /* Reduced from 280px */
+  }
+  .direct-contact-container {
+    margin-top: 40px;
+    max-width: 300px; /* Reduced from 280px */
+    overflow: hidden;
+  }
+  .social-media-list {
+    left: 0;
+  }
+  .social-media-list li {
+    height: 45px; /* Reduced from 55px */
+    width: 45px; /* Reduced from 55px */
+    line-height: 45px; /* Reduced from 55px */
+    font-size: 1.8rem; /* Reduced from 2rem */
+  }
+  .social-media-list li:after {
+    width: 45px; /* Reduced from 55px */
+    height: 45px; /* Reduced from 55px */
+    line-height: 45px; /* Reduced from 55px */
+  }
+
+  .contact-text {
+    font: 300 19px 'Lato', sans-serif;
+    letter-spacing: 1.9px;
+    color: #fff;
+  }
+
+
+
+}
+
+@media screen and (max-width: 411px) {
   .send-button {
     width: 99%;
+  }
+
+  .form-horizontal{
+    margin: 0px;
   }
 }

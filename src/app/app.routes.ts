@@ -12,8 +12,7 @@ import { InfoComponent } from './homepage/pages/info/info.component';
 import { ContactComponent } from './homepage/pages/contact/contact.component';
 
 export const routes: Routes = [
-  {path: '',redirectTo: 'dashboard',pathMatch: 'full'},
-  {path: 'dashboard',component: Card3DComponent},
+  {path: '',redirectTo: 'home',pathMatch: 'full'},
   {path: 'login',component: LoginComponent, canActivate: [isNotAuthGuard]},
   {path: 'bar',component: BarChartComponent},
   {path: 'line',component: LineChartComponent},
