@@ -7,7 +7,11 @@ html{
 .mtop{
   margin-top: 7rem;
 }
-
+@media (max-width: 576px){
+  .mtop{
+    margin-top: 1rem;
+  }
+}
 
 .shojomaru{
   font-family: "Shojumaru", system-ui;
